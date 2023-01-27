@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{display: flex;height: 100vh;margin: 0 ; background: #333;}
+        #calculator{display:table;padding:30px;box-shadow: 0 0 10px #666;border-radius: 10px;margin:auto;}
+        button,input{width:50px;height:40px;border: 1px solid #666;box-shadow: 2px 2px #333; border-radius: 5px;margin: 5px;}
+        #display{width: 230px;box-shadow: inset 2px 2px 0 #666; text-align:right;}
+        #equal{width:120px;background:orange;}
+    </style>
+</head>
+<body>
+
+    <div id="calculator">
+        <div>
+            <input type="text" id="display">
+        </div>
+        <div>
+            <button onclick="sifirla()">C</button>
+            <button onclick="yaz('**')">^</button>
+            <button onclick="sil()">←</button>
+            <button onclick="yaz('*')">*</button>
+        </div>
+        <div>
+            <button onclick="yaz(7)">7</button>
+            <button onclick="yaz(8)">8</button>
+            <button onclick="yaz(9)">9</button>
+            <button onclick="yaz('/')">/</button>
+        </div>
+        <div>
+            <button onclick="yaz(4)">4</button>
+            <button onclick="yaz(5)">5</button>
+            <button onclick="yaz(6)">6</button>
+            <button onclick="yaz('-')">-</button>
+        </div>
+        <div>
+            <button onclick="yaz(1)">1</button>
+            <button onclick="yaz(2)">2</button>
+            <button onclick="yaz(3)">3</button>
+            <button onclick="yaz('+')">+</button>
+        </div>
+        <div>
+            <button onclick="yaz('.')">.</button>
+            <button onclick="yaz(0)">0</button>
+            <button id="equal" onclick="hesabla()">=</button>
+        </div>
+    </div>
+
+    <script>
+        const display =document.getElementById("display")
+        function yaz(x){
+            display.value  += x
+        }
+        function hesabla() {
+            display.value = eval(display.value)
+        }
+        function sifirla(){
+            display.value=' '
+        }
+        function sil(){
+            display.value = display.value.substring(0 ,  display.value.length - 1)
+        }
+    </script>
+</body>
+</html>
